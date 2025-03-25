@@ -20,4 +20,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Translations\**\*" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="ApprenticeshipExam\src\assets\" />
+    <Folder Include="Static\" />
+  </ItemGroup>
 </Project>

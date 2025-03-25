@@ -19,37 +19,42 @@
     }
     @Html.CanonicalLink()
     @Html.AlternateLinks()
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/style.min.css" />
-    <link rel="stylesheet" href="~/css/theme.min.css" />
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <link crossorigin="anonymous" href="~/js/index.js" rel="preload" as="script">
+    <link href="~/css/index.css" rel="preload" as="style">
+    <link href="~/css/index.css" rel="stylesheet">
+    
     <required-client-resources area="Header" />
 </head>
 
 <body>
+<div id="app">
+    <ff-vue-button></ff-vue-button>
     @if (Model.Layout.IsInReadonlyMode)
     {
         await Html.RenderPartialAsync("Readonly", Model);
     }
-
+    
     @await Html.RenderEPiServerQuickNavigatorAsync()
-
-    @Html.FullRefreshPropertiesMetaData()
-
-    @if (!Model.Layout.HideHeader)
-    {
-        await Html.RenderPartialAsync("Header", Model);
-    }
-
-    <div class="container">
+    
+    
+        @Html.FullRefreshPropertiesMetaData()
+    
+        @if (!Model.Layout.HideHeader)
+        {
+            await Html.RenderPartialAsync("Header", Model);
+        }
+    
+    <main class="container">
         @RenderBody()
-    </div>
-
-    @if (!Model.Layout.HideFooter)
-    {
-        await Html.RenderPartialAsync("Footer", Model);
-    }
+    </main>
+    
+        @if (!Model.Layout.HideFooter)
+        {
+            await Html.RenderPartialAsync("Footer", Model);
+        }
+</div>
     <required-client-resources area="Footer" />
-    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="~/js/index.js"></script>
 </body>
 </html>
