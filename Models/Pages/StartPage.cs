@@ -15,13 +15,10 @@ namespace PrøveFagprøve.Models.Pages;
     Availability.Specific,
     Include =
     [
-        typeof(ContainerPage),
-        typeof(ProductPage),
-        typeof(StandardPage),
-        typeof(ISearchPage),
-        typeof(LandingPage),
-        typeof(ContentFolder)
+        typeof(NaturePage),
     ], // Pages we can create under the start page...
+    Exclude = 
+    [typeof(ProductPage)],
     ExcludeOn =
     [
         typeof(ContainerPage),

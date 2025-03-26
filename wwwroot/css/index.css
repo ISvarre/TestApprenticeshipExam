@@ -250,11 +250,6 @@
 @layer components;
 
 @layer utilities {
-  .border-2 {
-    border-style: var(--tw-border-style);
-    border-width: 2px;
-  }
-
   .border-4 {
     border-style: var(--tw-border-style);
     border-width: 4px;

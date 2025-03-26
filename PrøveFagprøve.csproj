@@ -25,4 +25,8 @@
     <Folder Include="ApprenticeshipExam\src\assets\" />
     <Folder Include="Static\" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Mat\MatPage.cshtml" />
+  </ItemGroup>
 </Project>
