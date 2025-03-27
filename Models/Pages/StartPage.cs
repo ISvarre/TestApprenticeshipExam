@@ -16,7 +16,11 @@ namespace PrøveFagprøve.Models.Pages;
     Include =
     [
         typeof(NaturePage),
+        typeof(CulturePage),
+        typeof(ActivityPage),
         typeof(FoodPage),
+        typeof(AccommodationPage)
+        
     ], // Pages we can create under the start page...
     Exclude = 
     [typeof(ProductPage)],
