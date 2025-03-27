@@ -39,20 +39,22 @@
     var destinasjoner = GetAllDestinasjoner(ContentReference.StartPage);
 }
 
-<div class="flex flex-col items-center justify-center text-center w-full">
-    @if (destinasjoner.Any())
-    {
-        foreach (var (destinasjon, tag) in destinasjoner)
+<div class="flex flex-col items-center justify-center text-center w-full px-10 py-6">
+    <ff-vue-button></ff-vue-button>
+    <div class="grid grid-cols-4 gap-4 px-20">
+        @if (destinasjoner.Any())
         {
-            <div
-                is="vue:ff-destination-card"
-                v-bind:title="'@destinasjon.Name'"
-                v-bind:image="'@destinasjon.GetImageUrl(UrlResolver.Current)'"
-                v-bind:tag="'@tag'"
-                v-bind:location="'@destinasjon.Poststed'"
-                v-bind:link="'@UrlResolver.Current.GetUrl(destinasjon.ContentLink)'"
-            >
-            </div>
+            foreach (var (destinasjon, tag) in destinasjoner)
+            {
+                <div
+                    is="vue:ff-destination-card"
+                    v-bind:title="'@destinasjon.Name'"
+                    v-bind:image="'@destinasjon.GetImageUrl(UrlResolver.Current)'"
+                    v-bind:tag="'@tag'"
+                    v-bind:location="'@destinasjon.Poststed'"
+                    v-bind:link="'@UrlResolver.Current.GetUrl(destinasjon.ContentLink)'">
+                </div>
+            }
         }
-    }
+    </div>
 </div>

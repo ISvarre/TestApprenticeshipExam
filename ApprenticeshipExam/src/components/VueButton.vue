@@ -3,11 +3,23 @@ console.log('Button')
 </script>
 
 <template>
-  <div>
-    This is the button
-    <button class="border-4 border-red-500 p-2 px-10">
-    Button
-  </button>
+  <div class="flex flex-col items-center justify-center text-center w-full px-10 py-6">
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1>Hello</h1>
+    <h1 class="grid grid-cols-4 gap-4 px-20">Hello</h1>
   </div>
 
 </template>

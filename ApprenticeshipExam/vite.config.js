@@ -39,6 +39,7 @@ export default defineConfig({
   runtimeCompiler: true,
   plugins: [
     tailwindcss(),
+
     vue({
       template: {
         compilerOptions: {

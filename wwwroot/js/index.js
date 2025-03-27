@@ -15696,14 +15696,14 @@ function compileToFunction(template, options) {
   return compileCache[key] = render2;
 }
 registerRuntimeCompiler(compileToFunction);
+const _hoisted_1$1 = { class: "flex flex-col items-center justify-center text-center w-full px-10 py-6" };
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "VueButton",
   setup(__props) {
     console.log("Button");
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", null, _cache[0] || (_cache[0] = [
-        createTextVNode(" This is the button "),
-        createBaseVNode("button", { class: "border-4 border-red-500 p-2 px-10" }, " Button ", -1)
+      return openBlock(), createElementBlock("div", _hoisted_1$1, _cache[0] || (_cache[0] = [
+        createStaticVNode('<h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1 class="grid grid-cols-4 gap-4 px-20">Hello</h1>', 16)
       ]));
     };
   }
