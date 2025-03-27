@@ -15708,31 +15708,34 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1 = { class: "absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold py-1 px-3 rounded-full z-10" };
-const _hoisted_2 = { class: "relative p-4 text-center text-white" };
-const _hoisted_3 = { class: "text-lg font-bold" };
-const _hoisted_4 = { class: "text-sm" };
+const _hoisted_1 = ["href"];
+const _hoisted_2 = { class: "absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold py-1 px-3 rounded-full z-10" };
+const _hoisted_3 = { class: "relative p-4 text-center text-white" };
+const _hoisted_4 = { class: "text-lg font-bold" };
+const _hoisted_5 = { class: "text-sm" };
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "DestinationCard",
   props: {
     image: String,
     title: String,
     location: String,
-    tag: String
+    tag: String,
+    page: String
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
+      return openBlock(), createElementBlock("a", {
+        href: __props.page,
         class: "relative flex flex-col justify-end bg-cover bg-center rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-80 w-48 gap-2",
         style: normalizeStyle({ backgroundImage: `url(${__props.image})` })
       }, [
         _cache[0] || (_cache[0] = createBaseVNode("div", { class: "absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" }, null, -1)),
-        createBaseVNode("span", _hoisted_1, toDisplayString(__props.tag), 1),
-        createBaseVNode("div", _hoisted_2, [
-          createBaseVNode("h3", _hoisted_3, toDisplayString(__props.title), 1),
-          createBaseVNode("p", _hoisted_4, toDisplayString(__props.location), 1)
+        createBaseVNode("span", _hoisted_2, toDisplayString(__props.tag), 1),
+        createBaseVNode("div", _hoisted_3, [
+          createBaseVNode("h3", _hoisted_4, toDisplayString(__props.title), 1),
+          createBaseVNode("p", _hoisted_5, toDisplayString(__props.location), 1)
         ])
-      ], 4);
+      ], 12, _hoisted_1);
     };
   }
 });

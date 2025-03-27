@@ -50,6 +50,7 @@
                 v-bind:image="'@destinasjon.GetImageUrl(UrlResolver.Current)'"
                 v-bind:tag="'@tag'"
                 v-bind:location="'@destinasjon.Poststed'"
+                v-bind:link="'@UrlResolver.Current.GetUrl(destinasjon.ContentLink)'"
             >
             </div>
         }
