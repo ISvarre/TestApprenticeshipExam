@@ -1,9 +1,57 @@
-@inherits PrøveFagprøve.Views.AlloyPageBase<PageViewModel<PrøveFagprøve.Models.Pages.StartPage>>
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using PrøveFagprøve.Models.Pages
+@using System.Collections.Generic
+@using System.Linq
 
-<div class="start">
-    <div epi-property="@Model.CurrentPage.MainContentArea" class="row">
-        <div epi-property-item class="block" epi-on-item-rendered="OnItemRendered">
-            <ff-vue-button></ff-vue-button>
-        </div>
-    </div>
+@functions {
+    private List<(Destinasjon destinasjon, string tag)> GetAllDestinasjoner(ContentReference parentLink, string parentTag = "")
+    {
+        var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+        var destinasjoner = new List<(Destinasjon, string)>();
+
+        var children = contentLoader.GetChildren<PageData>(parentLink);
+        foreach (var child in children)
+        {
+            if (child is Destinasjon destinasjon)
+            {
+                destinasjoner.Add((destinasjon, parentTag));
+            }
+            else if (child is ContainerPage containerPage)
+            {
+                var tag = containerPage.Name; // Use the container page name as the tag
+                destinasjoner.AddRange(GetAllDestinasjoner(child.ContentLink, tag));
+            }
+            else if (child is PageData)
+            {
+                destinasjoner.AddRange(GetAllDestinasjoner(child.ContentLink, parentTag));
+            }
+        }
+
+        return destinasjoner;
+    }
+}
+
+@{
+    var startPage = ServiceLocator.Current.GetInstance<IContentLoader>().Get<StartPage>(ContentReference.StartPage);
+    var destinasjoner = GetAllDestinasjoner(ContentReference.StartPage);
+}
+
+<div class="flex flex-col items-center justify-center text-center w-full">
+    @if (destinasjoner.Any())
+    {
+        foreach (var (destinasjon, tag) in destinasjoner)
+        {
+            <div
+                is="vue:ff-destination-card"
+                v-bind:title="'@destinasjon.Name'"
+                v-bind:image="'@destinasjon.GetImageUrl(UrlResolver.Current)'"
+                v-bind:tag="'@tag'"
+                v-bind:location="'@destinasjon.Poststed'"
+            >
+            </div>
+        }
+    }
 </div>
