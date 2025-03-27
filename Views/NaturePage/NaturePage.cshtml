@@ -6,6 +6,15 @@
 
 <div class="flex items-center justify-center text-center">
     <h1>
-        @Model.CurrentPage.Title
+        @Model.CurrentPage.Name
     </h1>
+    <img src="@Model.CurrentPage.GetImageUrl(UrlResolver.Current)" alt="">
+    <ff-destination-card></ff-destination-card>
+    <div
+        is="vue:ff-destination-card"
+        v-bind:title="'@Model.CurrentPage.Name'"
+        v-bind:image="'@Model.CurrentPage.GetImageUrl(UrlResolver.Current)'"
+        >
+        
+    </div>
 </div>
