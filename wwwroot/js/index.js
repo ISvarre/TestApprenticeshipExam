@@ -15708,12 +15708,10 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1 = { class: "flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" };
-const _hoisted_2 = ["src"];
-const _hoisted_3 = { class: "p-4 text-center" };
-const _hoisted_4 = { class: "inline-block bg-red-500 text-white text-xs font-semibold py-1 px-3 rounded-full mb-2" };
-const _hoisted_5 = { class: "text-lg font-bold text-gray-800" };
-const _hoisted_6 = { class: "text-sm text-gray-600" };
+const _hoisted_1 = { class: "absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold py-1 px-3 rounded-full z-10" };
+const _hoisted_2 = { class: "relative p-4 text-center text-white" };
+const _hoisted_3 = { class: "text-lg font-bold" };
+const _hoisted_4 = { class: "text-sm" };
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "DestinationCard",
   props: {
@@ -15724,18 +15722,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1, [
-        createBaseVNode("img", {
-          src: __props.image,
-          alt: "Destination Image",
-          class: "w-full h-40 object-cover"
-        }, null, 8, _hoisted_2),
-        createBaseVNode("div", _hoisted_3, [
-          createBaseVNode("span", _hoisted_4, toDisplayString(__props.tag), 1),
-          createBaseVNode("h3", _hoisted_5, toDisplayString(__props.title), 1),
-          createBaseVNode("p", _hoisted_6, toDisplayString(__props.location), 1)
+      return openBlock(), createElementBlock("div", {
+        class: "relative flex flex-col justify-end bg-cover bg-center rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-80 w-48 gap-2",
+        style: normalizeStyle({ backgroundImage: `url(${__props.image})` })
+      }, [
+        _cache[0] || (_cache[0] = createBaseVNode("div", { class: "absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" }, null, -1)),
+        createBaseVNode("span", _hoisted_1, toDisplayString(__props.tag), 1),
+        createBaseVNode("div", _hoisted_2, [
+          createBaseVNode("h3", _hoisted_3, toDisplayString(__props.title), 1),
+          createBaseVNode("p", _hoisted_4, toDisplayString(__props.location), 1)
         ])
-      ]);
+      ], 4);
     };
   }
 });
