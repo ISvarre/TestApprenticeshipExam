@@ -15696,24 +15696,24 @@ function compileToFunction(template, options) {
   return compileCache[key] = render2;
 }
 registerRuntimeCompiler(compileToFunction);
-const _hoisted_1$1 = { class: "flex flex-col items-center justify-center text-center w-full px-10 py-6" };
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _hoisted_1$2 = { class: "flex flex-col items-center justify-center text-center w-full px-10 py-6" };
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "VueButton",
   setup(__props) {
     console.log("Button");
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$1, _cache[0] || (_cache[0] = [
+      return openBlock(), createElementBlock("div", _hoisted_1$2, _cache[0] || (_cache[0] = [
         createStaticVNode('<h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1 class="grid grid-cols-4 gap-4 px-20">Hello</h1>', 16)
       ]));
     };
   }
 });
-const _hoisted_1 = ["href"];
-const _hoisted_2 = { class: "absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold py-1 px-3 rounded-full z-10" };
-const _hoisted_3 = { class: "relative p-4 text-center text-white" };
-const _hoisted_4 = { class: "text-lg font-bold" };
-const _hoisted_5 = { class: "text-sm" };
-const _sfc_main = /* @__PURE__ */ defineComponent({
+const _hoisted_1$1 = ["href"];
+const _hoisted_2$1 = { class: "absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold py-1 px-3 rounded-full z-10" };
+const _hoisted_3$1 = { class: "relative p-4 text-center text-white" };
+const _hoisted_4$1 = { class: "text-lg font-bold" };
+const _hoisted_5$1 = { class: "text-sm" };
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "DestinationCard",
   props: {
     image: String,
@@ -15730,17 +15730,50 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         style: normalizeStyle({ backgroundImage: `url(${__props.image})` })
       }, [
         _cache[0] || (_cache[0] = createBaseVNode("div", { class: "absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" }, null, -1)),
-        createBaseVNode("span", _hoisted_2, toDisplayString(__props.tag), 1),
-        createBaseVNode("div", _hoisted_3, [
-          createBaseVNode("h3", _hoisted_4, toDisplayString(__props.title), 1),
-          createBaseVNode("p", _hoisted_5, toDisplayString(__props.location), 1)
+        createBaseVNode("span", _hoisted_2$1, toDisplayString(__props.tag), 1),
+        createBaseVNode("div", _hoisted_3$1, [
+          createBaseVNode("h3", _hoisted_4$1, toDisplayString(__props.title), 1),
+          createBaseVNode("p", _hoisted_5$1, toDisplayString(__props.location), 1)
         ])
-      ], 12, _hoisted_1);
+      ], 12, _hoisted_1$1);
+    };
+  }
+});
+const _hoisted_1 = { class: "grid grid-cols-3" };
+const _hoisted_2 = { class: "col-span-2 px-4 max-w-3xl" };
+const _hoisted_3 = { class: "flex flex-col text-2xl font-bold" };
+const _hoisted_4 = { class: "border-b-2 border-gray-400 mb-6" };
+const _hoisted_5 = ["src"];
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "Article",
+  props: {
+    image: String,
+    title: String,
+    ingress: String,
+    content: String
+  },
+  setup(__props) {
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("div", _hoisted_1, [
+        createBaseVNode("div", _hoisted_2, [
+          createBaseVNode("div", _hoisted_3, toDisplayString(__props.title), 1),
+          createBaseVNode("div", _hoisted_4, toDisplayString(__props.ingress), 1),
+          renderSlot(_ctx.$slots, "content", { class: "" }, () => [
+            createTextVNode(toDisplayString(__props.content), 1)
+          ])
+        ]),
+        createBaseVNode("img", {
+          src: __props.image,
+          alt: "img",
+          class: "rounded-lg w-full px-4"
+        }, null, 8, _hoisted_5)
+      ]);
     };
   }
 });
 console.log("Hello World");
 const app = createApp({});
-app.component("FfVueButton", _sfc_main$1);
-app.component("FfDestinationCard", _sfc_main);
+app.component("FfVueButton", _sfc_main$2);
+app.component("FfDestinationCard", _sfc_main$1);
+app.component("FfArticle", _sfc_main);
 app.mount("#app");
