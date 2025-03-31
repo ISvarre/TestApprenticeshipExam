@@ -4,8 +4,17 @@
     Layout = "~/Views/Shared/Layouts/_Root.cshtml";
 }
 
-<div class="flex items-center justify-center text-center">
-    <h1>
-        @Model.CurrentPage.Name
-    </h1>
+<div class="flex flex-col items-center justify-center text-center w-full">
+    <ff-article
+        v-bind:title="'@Model.CurrentPage.Name'"
+        v-bind:image="'@Model.CurrentPage.GetImageUrl(UrlResolver.Current)'"
+        v-bind:ingress="'@Model.CurrentPage.Description'"
+        @* v-bind:content="'@Model.CurrentPage.Ingress'" *@
+    >
+        <template #content>
+            <div data-epi-edit="MainBody">
+                @Html.Raw(@Model.CurrentPage.MainBody)
+            </div>
+        </template>
+    </ff-article>
 </div>
