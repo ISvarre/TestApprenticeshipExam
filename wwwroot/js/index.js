@@ -15703,7 +15703,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     console.log("Button");
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$2, _cache[0] || (_cache[0] = [
-        createStaticVNode('<h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1 class="grid grid-cols-4 gap-4 px-20">Hello</h1>', 16)
+        createStaticVNode('<h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1>Hello</h1><h1 class="text-xl font-semibold">Hello</h1><h1 class="flex justify-between px-5 py-2">Hello</h1><h1 class="text-4xl max-w-4xl font-bold mb-4">Hello</h1><h1 class="grid grid-cols-5 gap-4 px-20">Hello</h1>', 16)
       ]));
     };
   }

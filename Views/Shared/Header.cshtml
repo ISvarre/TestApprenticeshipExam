@@ -3,15 +3,15 @@
 @model IPageViewModel<SitePageData>
 
 
-<header>
-    <div class="flex justify-between px-5 py-2">
+<header class="border-gray-400 border-b-2">
+    <div class="flex px-5 py-2 max-w-4xl justify-between items-center mx-auto">
         <div>
             <a class="navbar-brand logo" href="@Model.Layout.LogotypeLinkUrl" title="@Model.Layout.Logotype.Title">
                 <img src="@Model.Layout.Logotype.Url" alt="Alternate Text" height="80" width="80" />
             </a>
         </div>
-        <div>
-            
+        <div class="">
+            <a href="" class="text-xl font-semibold">Favoritter</a>
         </div>
     </div>
 </header>
