@@ -1,0 +1,9 @@
+@model PageViewModel<FavoritesPage>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+
+<div class="flex flex-col items-center justify-center text-center w-full">
+    @Model.CurrentPage.Name
+</div>

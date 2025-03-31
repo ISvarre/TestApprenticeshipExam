@@ -1,6 +1,15 @@
+@using EPiServer.ServiceLocation
 @using EPiServer.Web
 
 @model IPageViewModel<SitePageData>
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    
+    var startPage = contentLoader.Get<StartPage>(ContentReference.StartPage);
+    var favoritesPage = contentLoader.Get<FavoritesPage>(startPage.FavoritesPage);
+    var favoritesPageUrl = favoritesPage != null ? UrlResolver.Current.GetUrl(favoritesPage) : "#";
+}
 
 
 <header class="border-gray-400 border-b-2">
@@ -11,7 +20,7 @@
             </a>
         </div>
         <div class="">
-            <a href="" class="text-xl font-semibold">Favoritter</a>
+            <a href="@favoritesPageUrl" class="text-xl font-semibold">Favoritter</a>
         </div>
     </div>
 </header>

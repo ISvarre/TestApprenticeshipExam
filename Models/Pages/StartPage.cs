@@ -36,6 +36,8 @@ namespace PrøveFagprøve.Models.Pages;
     ])] // ...and underneath those we can't create additional start pages
 public class StartPage : SitePageData
 {
+    public virtual PageReference FavoritesPage { get; set; }
+    
     [Display(
         GroupName = SystemTabNames.Content,
         Order = 320)]
