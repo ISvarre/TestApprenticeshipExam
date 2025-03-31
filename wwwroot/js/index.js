@@ -15697,7 +15697,7 @@ function compileToFunction(template, options) {
 }
 registerRuntimeCompiler(compileToFunction);
 const _hoisted_1$2 = { class: "flex flex-col items-center justify-center text-center w-full px-10 py-6" };
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "VueButton",
   setup(__props) {
     console.log("Button");
@@ -15713,7 +15713,7 @@ const _hoisted_2$1 = { class: "absolute top-3 left-3 bg-red-500 text-white text-
 const _hoisted_3$1 = { class: "relative p-4 text-center text-white" };
 const _hoisted_4$1 = { class: "text-lg font-bold" };
 const _hoisted_5$1 = { class: "text-sm" };
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "DestinationCard",
   props: {
     image: String,
@@ -15739,11 +15739,42 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "FavoriteButton",
+  setup(__props) {
+    const isFavorite = ref(false);
+    const checkIfFavorite = () => {
+      const currentPage = window.location.href;
+      let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+      isFavorite.value = favorites.includes(currentPage);
+    };
+    const toggleFavorite = () => {
+      const currentPage = window.location.href;
+      let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+      if (favorites.includes(currentPage)) {
+        favorites = favorites.filter((page) => page !== currentPage);
+        isFavorite.value = false;
+      } else {
+        favorites.push(currentPage);
+        isFavorite.value = true;
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    };
+    checkIfFavorite();
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("button", {
+        onClick: toggleFavorite,
+        class: normalizeClass([{ "bg-blue-500": isFavorite.value, "bg-gray-500": !isFavorite.value }, "p-2 rounded text-white"])
+      }, toDisplayString(isFavorite.value ? "Remove from Favorites" : "Save as Favorite"), 3);
+    };
+  }
+});
 const _hoisted_1 = { class: "grid grid-cols-3" };
 const _hoisted_2 = { class: "col-span-2 px-4 max-w-3xl" };
 const _hoisted_3 = { class: "flex flex-col text-2xl font-bold" };
 const _hoisted_4 = { class: "border-b-2 border-gray-400 mb-6" };
-const _hoisted_5 = ["src"];
+const _hoisted_5 = { class: "flex flex-col gap-2 px-4" };
+const _hoisted_6 = ["src"];
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "Article",
   props: {
@@ -15762,18 +15793,22 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             createTextVNode(toDisplayString(__props.content), 1)
           ])
         ]),
-        createBaseVNode("img", {
-          src: __props.image,
-          alt: "img",
-          class: "rounded-lg w-full px-4"
-        }, null, 8, _hoisted_5)
+        createBaseVNode("div", _hoisted_5, [
+          createVNode(_sfc_main$1),
+          createBaseVNode("img", {
+            src: __props.image,
+            alt: "img",
+            class: "rounded-lg w-full"
+          }, null, 8, _hoisted_6)
+        ])
       ]);
     };
   }
 });
 console.log("Hello World");
 const app = createApp({});
-app.component("FfVueButton", _sfc_main$2);
-app.component("FfDestinationCard", _sfc_main$1);
+app.component("FfVueButton", _sfc_main$3);
+app.component("FfDestinationCard", _sfc_main$2);
 app.component("FfArticle", _sfc_main);
+app.component("FfFavoriteButton", _sfc_main$1);
 app.mount("#app");

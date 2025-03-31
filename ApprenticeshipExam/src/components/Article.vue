@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
+import FavoriteButton from "./FavoriteButton.vue";
 
 const props = defineProps({
   image: String,
@@ -22,7 +23,10 @@ const props = defineProps({
         {{ content }}
       </slot>
     </div>
-    <img :src="image" alt="img" class="rounded-lg w-full px-4" />
+    <div class="flex flex-col gap-2 px-4">
+      <favorite-button></favorite-button>
+      <img :src="image" alt="img" class="rounded-lg w-full " />
+    </div>
   </div>
 
 </template>
