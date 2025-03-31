@@ -16,7 +16,7 @@ console.log('Button')
     <h1>Hello</h1>
     <h1>Hello</h1>
     <h1>Hello</h1>
-    <h1 class="text-xl font-semibold">Hello</h1>
+    <h1 class="text-xl font-semibold border-2 gap-2">Hello</h1>
     <h1 class="flex justify-between px-5 py-2">Hello</h1>
     <h1 class="text-4xl max-w-4xl font-bold mb-4">Hello</h1>
     <h1 class="grid grid-cols-5 gap-4 px-20">Hello</h1>
