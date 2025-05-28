@@ -15764,7 +15764,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("button", {
         onClick: toggleFavorite,
-        class: normalizeClass([{ "bg-blue-500": isFavorite.value, "bg-gray-500": !isFavorite.value }, "p-2 rounded text-white"])
+        class: normalizeClass([{ "bg-red-500": isFavorite.value, "bg-gray-500": !isFavorite.value }, "p-2 rounded text-white"])
       }, toDisplayString(isFavorite.value ? "Remove from Favorites" : "Save as Favorite"), 3);
     };
   }

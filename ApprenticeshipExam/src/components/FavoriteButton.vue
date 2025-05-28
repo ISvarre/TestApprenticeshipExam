@@ -28,7 +28,7 @@ checkIfFavorite();
 </script>
 
 <template>
-  <button @click="toggleFavorite" :class="{'bg-blue-500': isFavorite, 'bg-gray-500': !isFavorite}" class="p-2 rounded text-white">
+  <button @click="toggleFavorite" :class="{'bg-red-500': isFavorite, 'bg-gray-500': !isFavorite}" class="p-2 rounded text-white">
     {{ isFavorite ? 'Remove from Favorites' : 'Save as Favorite' }}
   </button>
 </template>
